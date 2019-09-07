@@ -1,0 +1,1 @@
+Collection of lessons from Google, (found at https://developers.google.com/machine-learning/crash-course/Collection)
