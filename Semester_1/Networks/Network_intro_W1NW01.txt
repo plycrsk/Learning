@@ -1,0 +1,73 @@
+Networks Intro
+
+Information from https://commotionwireless.net/docs/cck/networking/learn-networking-basics/
+
+Basics
+1. Clients and Servers
+-How services such as e-mail connect using networks
+2. IP addresses
+How devices on a network can be found
+3. Network hardware
+Hubs, switches, cables, etc..
+4. Routers and firewalls
+How traffic on a network is organised and controlled
+
+1. Clients and Servers
+A server is a computer that holds services/content e.g. webpage, chat application
+The server that holds google's search page is an example
+
+A client is a different computer, e.g. phone, laptop, that requests to view/download
+information, or use content from a server.
+
+A client can connect to a server over a network, to access information.
+
+2. IP addresses
+In order to send and direct information over a network, computers need a way to 
+identify destinations and origins.
+Identification is done using Internet Protocol (IP) addresses. 
+An IP address is a set of 4 numbers between 1 and 254, separated by fullstops. E.g 111.102.132.7
+Different parts of the IP address provide different location information, like an address.
+The first 'section' (i.e. 111 in 111.102.132.7) might explain where in world it is,
+whereas the 132 might define a building, and the 7 a single computer in a building.
+
+2.1 Public and Private IP addresses
+Public IP addresses are visible to the entire internet
+Private IP addresses are not, and are often hidden behind a public IP address
+
+2.2 Task - find my IP address
+CL - ip addr show
+200~192.168.1.176/24
+check on website.. why is it different?
+86.175.48.152
+
+because one is private and one is public.
+
+3. Network hubs and switches
+Traditionally, computers are connected to one another using cables, usually ethernet cables.
+An Ethernet cable has four pairs of wires inside a plastic jacket.
+Computer A > hub > Computer B
+But with just a hub, all incoming messages are sent to all connected computers
+
+But this can become confusing for the hub when many computers are sending many messages.
+So, a switch is used. Now, messages are only sent to intended recipients, not repeated to all.
+Limited to sending messages only to the number of ports available on the switch.
+
+4. Routers and firewalls
+Routers do majority of 'hard work' on network
+They make decisions about messages that travel on network
+They decide whether to pass messages from outside/inside
+Three main functions:
+
+4a) Separate and Bridge
+Separate networks into different sections
+Bridge different networks together
+E.g private network with internet via public IP adress
+
+4b) Assign IP addresses
+E.g 192.168.132.1, new computer added = 192.168.132.2
+IP addresses are assigned using Dynamic host configuration protocol (DHCP)
+
+4c) Firewall and protect
+Routers can filter messages 
+Routers can keep certain people out of private networks
+Most routers have an inbuilt firewall - software that prevents certain messages reaching private network

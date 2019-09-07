@@ -1,0 +1,24 @@
+Shortcuts 
+Cursor Movement
+Ctrl-a - move to start of line
+Ctrl-e - move to end of line
+Ctrl-f - move forward one character
+Ctrl-b - move backward one character
+Alt-F - move forward one word
+Alt-b - move backward one word
+Ctrl-l - Clear screen and move cursor to top left
+Modifying Text
+Ctrl-d - delete character at current position
+Ctrl-t - transpose character at current position with one preceding it
+Alt-t - transpose word at current position with one preceding it
+Alt-l - convert word at current location to lower case
+Alt-u - convert word at current location to upper case
+Cutting and Pasting
+Cutting = Killing, as text is stored in Kill-ring
+Yanaking = Pasting, as text is yanked from the kill-ring
+Ctrl-k - kill text from current position to end of line
+Ctrl-u - kill text from current position to start of line
+Alt-d - kill text from cursor location to end of current word
+Alt-backspace - kill text from current location to beginning of current word. If at beginning of word, kill previous word
+Ctrl-y - yank text from kill-ring and insert it at cursor location 
+

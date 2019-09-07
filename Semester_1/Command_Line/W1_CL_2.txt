@@ -1,0 +1,43 @@
+Permissions
+type 'id' in CL to see user identity information.
+uid = unique user id - mapped to username
+gid = primary group id
+additional groups also shown
+user accounts are defined in /etc/passwd
+groups defined in /etc/group
+information about password is held in /etc/shadow
+superuser = uid 0
+
+File permissions
+-RWXRWXRWX
+1st digit = file type, - = regular
+2-4 = user permissions
+5-7 = group permissions
+8-10 = world permissions
+For file:
+r = File opened and read
+w = File written and truncated. Can not rename or delete
+x = Treated as program and executed
+For Directory:
+r = contents can be listed if x also set
+w = Files within can be created, deleted and renamed
+x = Allows a directory to be entered e.g. cd Desktop
+
+chmod allows user to modify permissions
+7 (rwx)
+6 (rw-)
+5 (r-x)
+4 (r--)
+0 (---)
+
+e.g chmod 755 will set file to RWXR-XR-X, readable, writeable, executable for user, readable and executable (but not writeable) for group and world.
+
+Can also change permissions using symbol system
+u = user
+g = group
+o = 'others' i.e. world
+a = u, g and o
+
+u+x = adds executable to user
+o-rw = removes read and write from world
+etc...

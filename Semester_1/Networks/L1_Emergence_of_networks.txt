@@ -1,0 +1,16 @@
+Number of computers connected by some communication line
+Not all need be DIRECTLTY connected. Can communicate indirectly
+Nodes are not all computers, an be router, switch, etc.
+
+Uses of Network
+Exchange of information
+Interconnected small computers in place of large computer
+-e.g for large, complex task
+-split into channels
+Communication tool 
+Distributed system
+-avoid queues
+-e.g for selling tickets
+
+Historical Events
+

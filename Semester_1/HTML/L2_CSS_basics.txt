@@ -1,0 +1,26 @@
+Basic CSS
+CSS = Cascading Style Sheets
+Can define in line, at top of code, or on separate sheet (preferred)
+
+Change Text Colour
+1.Inline
+<h2 style="color: blue;">CatPhotoApp</h2>
+Good practice to end inline style declaration with ;
+2. Style block
+<style>
+  h2 {color: red;}
+</style>
+
+Creating a CSS class
+<style>
+  .blue-text {
+    color: blue;
+  }
+</style>
+-Can then use class="blue-text" to create blue text
+e.g: <h2 class="blue-text">CatPhotoApp</h2>
+
+Font Size
+p {
+    font-size: 16px;
+  }

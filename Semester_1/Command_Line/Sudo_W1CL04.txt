@@ -1,0 +1,6 @@
+Su and Sudo
+Su starts a new shell as another user. If no user specified, superuser assumed.
+Su is not enabled  on ubuntu as pwd not set 
+Sudo used instead, used on a case-by-case basis. Password of user required
+Does not start a new shell
+Initial user account is granted privelages (via sudo) on ubuntu

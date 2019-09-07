@@ -1,0 +1,40 @@
+Permissions 2
+Umask
+-Default masking applied to new files
+-0002 = REMOVE 'write' from world (the third user)
+
+0000 = REMOVE nothing from any user
+0022 = REMOVE 'write' from group and world
+
+etc..
+
+Special Cases
+4000 = setuid = sets effective user ID to that of owner. Superuser privelige
+2000 = setgid = again changes effective user ID to that of owner. If set on directory, newly created files are given group ownership of directory rather than of file creator. Useful in shared directories
+1000 = sticky = if applied to directory, prevents users from deleting or enaming files unless ownder, or superuser.
+
+Chown
+Used to change owner and group owner of a file or directory. Superuser req.
+Chown [owner][:[group]] file...
+Can change file owner and/or file group owner
+E.g.
+Chown Bob - changes ownership from current owner to bob
+Chown Bob:users - changes ownership from current owner to bob, and file group owner to users.
+Chown :admins - file ownership unchanged, group ownership changed to group admins
+
+e.g How would we set up a new directory, shared by 2 users, both of whom can write and read from that directory?
+sudo mkdir /usr/local/share/music
+ls -ld /usr/local/share/music 
+drwxr-xr-x 2 root root 4096 2018-03-21 18:05 /usr/local/share/Music (shows that ROOT created and belongs to ROOT group)
+
+so.. use sudo chown to change this.
+sudo chown :music /usr/local/share/music to change group to music (which includes users who can modify)
+sudo chown 775 to change read/write permissions
+ls -ld /usr/local/share/music
+drwxrwxr-x 2 root music 4096 2018-03-21 18:05 /usr/local/share/Music
+
+but still need to solve problem that users creating new files in the directory will have their files set to group of that user, not of directory.
+> set to setgid (2000 or g+s)
+> set users umask to 0002 (rather than 0022)
+
+

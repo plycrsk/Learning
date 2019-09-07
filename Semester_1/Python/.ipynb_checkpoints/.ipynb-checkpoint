@@ -1,0 +1,529 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#do this again using iterations\n",
+    "def board_size(squares):\n",
+    "    for i in range(squares):\n",
+    "        print(' ---' * squares)\n",
+    "        print('|   ' * (squares+1)) \n",
+    "    print(' ---' * squares)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " --- --- --- ---\n",
+      "|   |   |   |   |   \n",
+      " --- --- --- ---\n",
+      "|   |   |   |   |   \n",
+      " --- --- --- ---\n",
+      "|   |   |   |   |   \n",
+      " --- --- --- ---\n",
+      "|   |   |   |   |   \n",
+      " --- --- --- ---\n"
+     ]
+    }
+   ],
+   "source": [
+    "board_size(4)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " --- --- ---\n",
+      "|   |   |   |   \n",
+      " --- --- ---\n",
+      "|   |   |   |   \n",
+      " --- --- ---\n",
+      "|   |   |   |   \n",
+      " --- --- ---\n"
+     ]
+    }
+   ],
+   "source": [
+    "board = board_size(3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "game = [[2,1,0],\n",
+    "        [2,2,0],\n",
+    "        [0,2,2]]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[[2, 1, 0], [2, 2, 0], [0, 2, 2]]"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "game"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "loser\n"
+     ]
+    }
+   ],
+   "source": [
+    "if (game[0][0]+game[0][1]+game[0][2]) == 3 and game[0][0] != 0 and game[0][1] != 0 and game [0][2] != 0:\n",
+    "    print('x wins')\n",
+    "#elif (game[1][0]+game[1][1]+game[1][2]) == 3:\n",
+    "    print('x wins')\n",
+    "#elif (game[2][0]+game[2][1]+game[2][2]) == 3:\n",
+    "    print('x wins')\n",
+    "#elif (game[0][0]+game[0][1]+game[0][2]) == 4:\n",
+    "    print('y wins')\n",
+    "#elif (game[0][0]+game[0][1]+game[0][2]) == 4:\n",
+    "    print('y wins')\n",
+    "#elif (game[0][0]+game[0][1]+game[0][2]) == 4:\n",
+    "    print('y wins')\n",
+    "else:\n",
+    "    print('loser')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 143,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def winner_checker(game):\n",
+    "    global winner\n",
+    "    if game[0] == [1,1,1]:\n",
+    "        print('player 1 wins')\n",
+    "        winner = 1\n",
+    "    elif game[1] == [1,1,1]:\n",
+    "        print('player 1 wins')\n",
+    "        winner = 1\n",
+    "    elif game[2] == [1,1,1]:\n",
+    "        print('player 1 wins')\n",
+    "        winner = 1\n",
+    "    elif game[0][0] == 1 and game[1][0] == 1 and game[2][0] == 1:\n",
+    "        print('player 1 wins')\n",
+    "        winner = 1\n",
+    "    elif game[0][1] == 1 and game[1][1] == 1 and game[2][1] == 1:\n",
+    "        print('player 1 wins')\n",
+    "        winner = 1\n",
+    "    elif game[0][2] == 1 and game[1][2] == 1 and game[2][2] == 1:\n",
+    "        print('player 1 wins')\n",
+    "        winner = 1\n",
+    "    elif game[0][0] == 1 and game[1][1] == 1 and game[2][2] == 1:\n",
+    "        print('player 1 wins')\n",
+    "        winner = 1\n",
+    "    elif game[0][2] == 1 and game[1][1] == 1 and game[2][0] == 1:\n",
+    "        print('player 1 wins')\n",
+    "        winner = 1\n",
+    "    elif game[0] == [2,2,2]:\n",
+    "        print('player 2 wins')\n",
+    "        winner = 1\n",
+    "    elif game[1] == [2,2,2]:\n",
+    "        print('player 2 wins')\n",
+    "        winner = 1\n",
+    "    elif game[2] == [2,2,2]:\n",
+    "        print('player 2 wins')\n",
+    "        winner = 1\n",
+    "    elif game[0][0] == 2 and game[1][0] == 2 and game[2][0] == 2:\n",
+    "        print('player 2 wins')\n",
+    "        winner = 1\n",
+    "    elif game[0][1] == 2 and game[1][1] == 2 and game[2][1] == 2:\n",
+    "        print('player 2 wins')\n",
+    "        winner = 1\n",
+    "    elif game[0][2] == 2 and game[1][2] == 2 and game[2][2] == 2:\n",
+    "        print('player 2 wins')\n",
+    "        winner = 1\n",
+    "    elif game[0][0] == 2 and game[1][1] == 2 and game[2][2] == 2:\n",
+    "        print('player 2 wins')\n",
+    "        winner = 1\n",
+    "    elif game[0][2] == 2 and game[1][1] == 2 and game[2][0] == 2:\n",
+    "        print('player 2 wins')\n",
+    "        winner = 1\n",
+    "    else:\n",
+    "        #print('no current winner')\n",
+    "        winner = 0\n",
+    "        "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 267,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "starting_game = [['',0,0],\n",
+    "        [0,0,0],\n",
+    "        [0,0,0]]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 261,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "fail\n"
+     ]
+    }
+   ],
+   "source": [
+    "winner_checker(starting_game)\n",
+    "if winner == 1:\n",
+    "    print('success')\n",
+    "else:\n",
+    "    print('fail')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 262,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "None\n"
+     ]
+    }
+   ],
+   "source": [
+    "if print(winner_checker(starting_game)) == 'no current winner':\n",
+    "    print('success')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "winner_checker(starting_game)\n",
+    "def TTT():\n",
+    "    starting_game = [['','',''],\n",
+    "        ['','',''],\n",
+    "        ['','','']]\n",
+    "    board = starting_game\n",
+    "    winner_checker(starting_game)\n",
+    "    while winner ==0:\n",
+    "        p1_go = input('Player 1, Where would you like to go? In format ''x,y'' where x is row and y is column')\n",
+    "        while board[(int(p1_go[0]))-1][(int(p1_go[2])-1)] != 0:\n",
+    "            print('Sorry, this space is taken')\n",
+    "            p1_go = input('Player 1, Where would you like to go? In format ''x,y'' where x is row and y is column')\n",
+    "        board[(int(p1_go[0]))-1][(int(p1_go[2])-1)] = 1\n",
+    "        print_board(board)\n",
+    "        winner_checker(board)\n",
+    "        p2_go = input('Player 2, Where would you like to go? In format ''x,y'' where x is row and y is column')\n",
+    "        while board[(int(p2_go[0]))-1][(int(p2_go[2])-1)] != 0:\n",
+    "            print('Sorry, this space is taken')\n",
+    "            p2_go = input('Player 2, Where would you like to go? In format ''x,y'' where x is row and y is column')\n",
+    "        board[(int(p2_go[0]))-1][(int(p2_go[2])-1)] = 2\n",
+    "        print_board(board)\n",
+    "        winner_checker(board)\n",
+    "        \n",
+    "        "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 266,
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Player 1, Where would you like to go? In format x,y where x is row and y is column2,1\n",
+      " --- --- ---\n",
+      "| 0 | 0 | 0 |\n",
+      " --- --- ---\n",
+      "| 1 | 0 | 0 |\n",
+      " --- --- ---\n",
+      "| 0 | 0 | 0 |\n",
+      " --- --- ---\n"
+     ]
+    },
+    {
+     "ename": "KeyboardInterrupt",
+     "evalue": "",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mKeyboardInterrupt\u001b[0m                         Traceback (most recent call last)",
+      "\u001b[0;32m~/anaconda3/lib/python3.7/site-packages/ipykernel/kernelbase.py\u001b[0m in \u001b[0;36m_input_request\u001b[0;34m(self, prompt, ident, parent, password)\u001b[0m\n\u001b[1;32m    877\u001b[0m             \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 878\u001b[0;31m                 \u001b[0mident\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mreply\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msession\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mrecv\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mstdin_socket\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m0\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    879\u001b[0m             \u001b[0;32mexcept\u001b[0m \u001b[0mException\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m~/anaconda3/lib/python3.7/site-packages/jupyter_client/session.py\u001b[0m in \u001b[0;36mrecv\u001b[0;34m(self, socket, mode, content, copy)\u001b[0m\n\u001b[1;32m    802\u001b[0m         \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 803\u001b[0;31m             \u001b[0mmsg_list\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0msocket\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mrecv_multipart\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mmode\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mcopy\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mcopy\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    804\u001b[0m         \u001b[0;32mexcept\u001b[0m \u001b[0mzmq\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mZMQError\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0me\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m~/anaconda3/lib/python3.7/site-packages/zmq/sugar/socket.py\u001b[0m in \u001b[0;36mrecv_multipart\u001b[0;34m(self, flags, copy, track)\u001b[0m\n\u001b[1;32m    466\u001b[0m         \"\"\"\n\u001b[0;32m--> 467\u001b[0;31m         \u001b[0mparts\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mrecv\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mflags\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mcopy\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mcopy\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mtrack\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mtrack\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    468\u001b[0m         \u001b[0;31m# have first part already, only loop while more to receive\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32mzmq/backend/cython/socket.pyx\u001b[0m in \u001b[0;36mzmq.backend.cython.socket.Socket.recv\u001b[0;34m()\u001b[0m\n",
+      "\u001b[0;32mzmq/backend/cython/socket.pyx\u001b[0m in \u001b[0;36mzmq.backend.cython.socket.Socket.recv\u001b[0;34m()\u001b[0m\n",
+      "\u001b[0;32mzmq/backend/cython/socket.pyx\u001b[0m in \u001b[0;36mzmq.backend.cython.socket._recv_copy\u001b[0;34m()\u001b[0m\n",
+      "\u001b[0;32m~/anaconda3/lib/python3.7/site-packages/zmq/backend/cython/checkrc.pxd\u001b[0m in \u001b[0;36mzmq.backend.cython.checkrc._check_rc\u001b[0;34m()\u001b[0m\n",
+      "\u001b[0;31mKeyboardInterrupt\u001b[0m: ",
+      "\nDuring handling of the above exception, another exception occurred:\n",
+      "\u001b[0;31mKeyboardInterrupt\u001b[0m                         Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-266-fdd55dea40d1>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mTTT\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;32m<ipython-input-252-d55d744a214f>\u001b[0m in \u001b[0;36mTTT\u001b[0;34m()\u001b[0m\n\u001b[1;32m     14\u001b[0m         \u001b[0mprint_board\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mboard\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     15\u001b[0m         \u001b[0mwinner_checker\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mboard\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 16\u001b[0;31m         \u001b[0mp2_go\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0minput\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'Player 2, Where would you like to go? In format '\u001b[0m\u001b[0;34m'x,y'\u001b[0m\u001b[0;34m' where x is row and y is column'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     17\u001b[0m         \u001b[0;32mwhile\u001b[0m \u001b[0mboard\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mp2_go\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m-\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mp2_go\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m2\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m-\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m!=\u001b[0m \u001b[0;36m0\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     18\u001b[0m             \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'Sorry, this space is taken'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m~/anaconda3/lib/python3.7/site-packages/ipykernel/kernelbase.py\u001b[0m in \u001b[0;36mraw_input\u001b[0;34m(self, prompt)\u001b[0m\n\u001b[1;32m    851\u001b[0m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_parent_ident\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    852\u001b[0m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_parent_header\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 853\u001b[0;31m             \u001b[0mpassword\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;32mFalse\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    854\u001b[0m         )\n\u001b[1;32m    855\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m~/anaconda3/lib/python3.7/site-packages/ipykernel/kernelbase.py\u001b[0m in \u001b[0;36m_input_request\u001b[0;34m(self, prompt, ident, parent, password)\u001b[0m\n\u001b[1;32m    881\u001b[0m             \u001b[0;32mexcept\u001b[0m \u001b[0mKeyboardInterrupt\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    882\u001b[0m                 \u001b[0;31m# re-raise KeyboardInterrupt, to truncate traceback\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 883\u001b[0;31m                 \u001b[0;32mraise\u001b[0m \u001b[0mKeyboardInterrupt\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    884\u001b[0m             \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    885\u001b[0m                 \u001b[0;32mbreak\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mKeyboardInterrupt\u001b[0m: "
+     ]
+    }
+   ],
+   "source": [
+    "TTT()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 162,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " --- --- ---\n",
+      "|   |   |   |   \n",
+      " --- --- ---\n",
+      "|   |   |   |   \n",
+      " --- --- ---\n",
+      "|   |   |   |   \n",
+      " --- --- ---\n"
+     ]
+    }
+   ],
+   "source": [
+    "board_size(3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 236,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[[2, 1, 0], [2, 2, 0], [0, 2, 2]]"
+      ]
+     },
+     "execution_count": 236,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "game"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 169,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#do this again using iterations\n",
+    "def board_size(squares):\n",
+    "    for i in range(squares):\n",
+    "        print(' ---' * squares)\n",
+    "        print('|   ' * (squares+1)) \n",
+    "    print(' ---' * squares)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 170,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " --- --- ---\n",
+      "|   |   |   |   \n",
+      " --- --- ---\n",
+      "|   |   |   |   \n",
+      " --- --- ---\n",
+      "|   |   |   |   \n",
+      " --- --- ---\n"
+     ]
+    }
+   ],
+   "source": [
+    "board_size(3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 231,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def board_size_2(squares, y, x):\n",
+    "    print(' ---' * squares)\n",
+    "    for i in range(squares):\n",
+    "        if i != y:\n",
+    "            #print(' ---' * squares)\n",
+    "            print('|   ' * (squares+1)) \n",
+    "        else:\n",
+    "            if x == 0:\n",
+    "                print('| X ' + '|   ' * (squares-1) + '|')\n",
+    "            if x == 1:\n",
+    "                print('|   ' + '| X ' + '|   |')\n",
+    "            if x == 2:\n",
+    "                print('|   ' *(squares-1) + '| X |')\n",
+    "            #print(' ---' * squares)\n",
+    "            #print('| X ' * (squares) + '|')\n",
+    "        print(' ---' * squares)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 235,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " --- --- ---\n",
+      "|   |   |   |   \n",
+      " --- --- ---\n",
+      "|   |   |   |   \n",
+      " --- --- ---\n",
+      "|   |   | X |\n",
+      " --- --- ---\n"
+     ]
+    }
+   ],
+   "source": [
+    "board_size_2(3,2,2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 250,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def print_board(game):\n",
+    "    print( ' --- --- ---')\n",
+    "    print('| ' + str(game[0][0]) + ' | ' + str(game[0][1]) + ' | ' + str(game[0][2]) + ' |')\n",
+    "    print( ' --- --- ---')\n",
+    "    print('| ' + str(game[1][0]) + ' | ' + str(game[1][1]) + ' | ' + str(game[1][2]) + ' |')\n",
+    "    print( ' --- --- ---')\n",
+    "    print('| ' + str(game[2][0]) + ' | ' + str(game[2][1]) + ' | ' + str(game[2][2]) + ' |')\n",
+    "    print( ' --- --- ---')\n",
+    "    \n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 259,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[[2, 1, 0], [2, 2, 0], [0, 2, 2]]"
+      ]
+     },
+     "execution_count": 259,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "game ="
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 239,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[[2, 1, 0], [2, 2, 0], [0, 2, 2]]"
+      ]
+     },
+     "execution_count": 239,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "game"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
