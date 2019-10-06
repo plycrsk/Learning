@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Blog: In App Template</h1>
-<p>{{ object.date }}</p>
 <h2>{{ object.title }}</h2>
+<b><p>{{ object.date }}</p></b>
 <p>{% if object.content != None and object.content != '' %}{{ object.content }}{% else %}Entry coming soon{% endif %}</p>
+
+<form action="delete/">
+    <input type="submit" value="Delete" />
+</form>
+
+<form action="edit/">
+    <input type="submit" value="Edit" />
+</form>
 
 {% endblock %}

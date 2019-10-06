@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Blog</h1>
+
+<!-- {{object_list}} -->
+
+{% for instance in object_list %}
+	<p><a href='{{ instance.get_absolute_url }}'> {{instance.date}} - {{instance.title}}</a></p>
+	<!-- <p>{{ instance.content}}</p> -->
+	
+{% endfor %}
+
+<form action="/blog/create">
+    <input type="submit" value="New Post" />
+</form>
+
+{% endblock %}

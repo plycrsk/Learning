@@ -1,5 +1,5 @@
 from django.http import Http404
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 from .forms import BlogPostForm, RawBlogPostForm
 from .models import BlogPost
@@ -31,6 +31,25 @@ def blog_detail_view(request, blog_id):
 		'object':obj
 	}
 	return render(request, "BlogPost_detail.html", context)
+
+def blog_delete_view(request, blog_id):
+	obj = get_object_or_404(BlogPost, id=blog_id)
+	if request.method =="POST":
+		#confirming delete
+		obj.delete()
+		#return 3 pages prior to deleted page
+		return redirect('../../')
+	context = {
+		'object':obj
+	}
+	return render(request, "BlogPost_delete.html", context)
+
+def blog_list_view(request):
+	queryset = BlogPost.objects.all() #list of blog post titles
+	context = {
+		"object_list": queryset
+	}
+	return render(request, "BlogPost_list.html", context)
 
 
 # # Create your views here.

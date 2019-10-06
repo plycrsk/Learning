@@ -16,3 +16,9 @@ def blog_view(request, *args, **kwargs):
 		
 	}
 	return render(request, "blog.html", my_context)
+
+def planner_view(request, *args, **kwargs):
+	my_context = {
+		"planner": "This is my planner"
+	}
+	return render(request, "planner.html", my_context)

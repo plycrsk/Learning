@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     #own
     'blog',
     'pages',
+    'planner',
 ]
 
 MIDDLEWARE = [
