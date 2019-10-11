@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .forms import AppointmentForm
 from .models import Appointment
@@ -13,7 +13,8 @@ def appointment_create_view(request):
 	form = AppointmentForm(request.POST or None)
 	if form.is_valid():
 		form.save()
-		form = Appointment_Form()
+		form = AppointmentForm()
+		return redirect("../")
 	context = {
 		'form':form
 	}
@@ -25,3 +26,14 @@ def appointment_list_view(request):
 		"object_list": queryset
 	}
 	return render(request, "Appointment_list.html", context)
+
+def appointment_detail_view(request, appointment_id):
+	try:
+		obj = Appointment.objects.get(id=appointment_id)
+	except Appointment.DoesNotExist:
+		raise Http404
+	context = {
+		'object':obj
+	}
+	return render(request, "Appointment_detail.html", context)
+	

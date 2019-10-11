@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import BlogPostForm, RawBlogPostForm
 from .models import BlogPost
 
-def blog_create_view(request):
+def blog_create_view(request, blog_id=None):
 	initial_data = {
 		'title': 'My title'
 	}
@@ -50,6 +50,23 @@ def blog_list_view(request):
 		"object_list": queryset
 	}
 	return render(request, "BlogPost_list.html", context)
+
+def blog_edit_view(request, blog_id):
+	obj = get_object_or_404(BlogPost, id=blog_id)
+	initial_data = {
+		'title': 'My title'
+	}
+	#used to edit model form data
+	#obj = BlogPost.objects.get(id=1)
+	form = BlogPostForm(request.POST or None, instance=obj)
+	if form.is_valid():
+		form.save()
+		form = BlogPostForm()
+		return redirect('../')
+	context = {
+		'form':form
+	}
+	return render(request, "BlogPost_create.html", context)
 
 
 # # Create your views here.

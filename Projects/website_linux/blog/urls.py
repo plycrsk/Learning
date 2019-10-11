@@ -10,7 +10,8 @@ from blog.views import (
 	blog_detail_view,
 	blog_create_view,
 	blog_delete_view,
-	blog_list_view
+	blog_list_view,
+	blog_edit_view
 
 )
 app_name = 'blog'
@@ -18,6 +19,7 @@ urlpatterns = [
 	  
     path('', blog_list_view, name='blog'),
     path('create/', blog_create_view, name='blog_create'),
+	path('<int:blog_id>/edit/', blog_edit_view, name='blog_edit'),
     #path('blog_list', blog_list_view, name='blog_list'),
     path('<int:blog_id>/', blog_detail_view, name='blog_detail'),
     path('<int:blog_id>/delete/', blog_delete_view, name='blog_delete'),

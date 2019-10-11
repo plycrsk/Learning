@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ object.title }}</h2>
+<b><p>{{ object.date_time }}</p></b>
+<b><p>{{ object.location }}</p></b>
+<b><p>{{ object.category }}</p></b>
+<!--<p>{% if object.content != None and object.content != '' %}
+{{ object.content }}{% else %}Entry coming soon{% endif %}</p>-->
+
+<form action="delete/">
+    <input type="submit" value="Delete" />
+</form>
+
+<form action="edit/">
+    <p><a href="/edit"</a></p>
+    <input type="submit" value="Edit" />
+</form>
+
+{% endblock %}

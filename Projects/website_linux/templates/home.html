@@ -2,8 +2,10 @@
 
 {% block content %}
 <h1>Sam Kean</h1>
-{{ request.user }} #provides username
-{{ request.user.is_authenticated}} #reports whether user is logged in or not
-<p>This is a template</p>
+<a href="https://ibb.co/r20m5XV"><img src="https://i.ibb.co/qYjdm2v/sampic.jpg"
+alt="sampic" border="0" style="width:800px;height:autopx" /></a>
+<p><b>This is a template</b></p>
+<b>{{ request.user }}</b> <!--provides username -->
+<!--{{ request.user.is_authenticated}} --> <!-- #reports whether user is logged in or not -->
 {% endblock %}
 

@@ -12,8 +12,8 @@ class Appointment(models.Model):
 	location 	=   models.CharField(max_length = 100)
 	title 		=   models.CharField(max_length = 100, default = 'Appointment')
 	
-	#def get_absolute_url(self):
-	#	return reverse("planner:appointment_detail", kwargs={"appointment_id": self.id})
+	def get_absolute_url(self):
+		return reverse("planner:appointment_detail", kwargs={"appointment_id": self.id})
 		#return f"/blog/detail/{self.id}"
 	
 	
